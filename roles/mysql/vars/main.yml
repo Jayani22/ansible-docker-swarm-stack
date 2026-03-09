@@ -1,0 +1,4 @@
+mysql_container_name: mysql
+mysql_image: mysql:8
+mysql_root_password: Root567
+mysql_port: 3306

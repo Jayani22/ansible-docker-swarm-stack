@@ -1,8 +1,8 @@
 - name: Run Redis container
   docker_container:
-    name: redis
-    image: redis:latest
+    name: "{{ redis_container_name }}"
+    image: "{{ redis_image }}"
     state: started
     restart_policy: always
     ports:
-      - "6379:6379"
+      - "{{ redis_port }}:6379"

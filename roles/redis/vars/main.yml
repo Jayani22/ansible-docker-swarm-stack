@@ -1,0 +1,3 @@
+redis_container_name: redis
+redis_image: redis:latest
+redis_port: 6379
