@@ -1,0 +1,10 @@
+- name: Run MySQL 8 container
+  docker_container:
+    name: mysql
+    image: mysql:8
+    state: started
+    restart_policy: always
+    env:
+      MYSQL_ROOT_PASSWORD: Root567
+    ports:
+      - "3306:3306"

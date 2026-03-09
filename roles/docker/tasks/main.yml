@@ -1,0 +1,35 @@
+- name: Install Docker on Debian based systems
+  apt:
+    name: docker.io
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: Install Docker on RedHat based systems
+  yum:
+    name: docker
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Start and enable Docker service
+  service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Install pip on Debian systems
+  apt:
+    name: python3-pip
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Install pip on RedHat systems
+  yum:
+    name: python3-pip
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Install Python Docker SDK
+  pip:
+    name: docker
+    extra_args: --break-system-packages

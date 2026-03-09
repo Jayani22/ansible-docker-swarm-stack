@@ -1,0 +1,8 @@
+- name: Initialize Docker Swarm
+  command: docker swarm init
+  register: swarm_output
+  ignore_errors: true
+
+- name: Show Swarm initialization result
+  debug:
+    var: swarm_output.stdout

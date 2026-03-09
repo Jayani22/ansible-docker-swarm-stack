@@ -1,0 +1,9 @@
+- name: Setup Docker Swarm with MySQL and Redis
+  hosts: servers
+  become: yes
+
+  roles:
+    - docker
+    - swarm
+    - mysql
+    - redis
