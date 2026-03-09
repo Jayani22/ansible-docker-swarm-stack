@@ -1,9 +1,11 @@
+---
 - name: Setup Docker Swarm with MySQL and Redis
   hosts: servers
-  become: yes
+  become: true
+  gather_facts: yes
 
   roles:
-    - docker
-    - swarm
-    - mysql
-    - redis
+    - { role: docker, tags: docker }
+    - { role: swarm, tags: swarm }
+    - { role: mysql, tags: mysql }
+    - { role: redis, tags: redis }
